@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+    <title>OPMS</title>
+</head>
+<body>
+    <div class="company">
+        <div class="company__nav">
+            <div class="company__nav--left">
+                <div id="nav-btn" class="show-toggle" type="button">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                
+                <ul class="nav justify-content-start">
+                    <li class="nav-item">
+                      <a class="nav-link green" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Tax Finilization</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Working Timesheet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Appraisals</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Project</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link a-hide" href="#">Timesheets</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link a-hide" href="#">Employees</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link a-hide" href="#">Assets</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link a-hide" href="#">Helpdesk</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link a-hide" href="#">Personal Info</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link more" href="#">More <i class="fa-solid fa-caret-down"></i></a>
+                      </li>
+                </ul>
+            </div>
+            <div class="company__nav--right">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <i class="fa-regular fa-clock"></i>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa-regular fa-comments"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="data:image/png;base64,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" alt="">
+                        </a>
+                      </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-link-name" href="#">Nguyễn Thị Hồng 1</a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+        <div class="company__head">
+        </div>
+        <div class="company__container">
+            <div class="iconforinfo">
+                <!-- <i class="fa-solid fa-house-user"></i> -->
+            </div>
+            <div class="company__container__left">
+                <img src="data:image/png;base64,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" alt="">
+                <div class="info">
+                    <h5>NGUYỄN THỊ HỒNG 1</h5>
+                    <p>Internship <br> Intern</p>
+                </div>
+                <div class="profile">
+                    <div class="profile__gender">
+                        <i class="fa-solid fa-venus"></i>
+                        <p>Nữ</p>
+                    </div>
+                    <div class="profile__dateOfBirth">
+                        <p>DOB</p>
+                        <P>--/--/----</P>
+                    </div>
+                </div>
+                <p>Đã vào làm <br>
+                    5 ngày làm </p>
+            </div>
+            <div class="company__container__right">
+                <div class="right__title">
+                    <marquee class="marquee" direction="left">Xin chào Nguyễn Thị Hồng 1, chúc bạn có một
+                        ngày làm việc thật vui vẻ và hiệu quả !</marquee>
+                </div>
+                <div class="list-item">
+                    <div class="item pink" >
+                        <p class="item__title">CHỜ PHÊ DUYỆT</p>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Xin nghỉ</p> 
+                                <p>0</p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Đi muộn/Về sớm</p> 
+                                <p>0</p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Xin WFH</p> 
+                                <p>0</p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Chấm công WFH</p> 
+                                <p>0</p></div>
+                        </button>
+                    </div>
+                    <div class="item orange">
+                        <p class="item__title">VIỆC CẦN LÀM</p>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Duyệt xin nghỉ</p> 
+                                <p>0</p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Duyệt đi muộn/về sớm</p> 
+                                <p>0</p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Duyệt xin WFH</p> 
+                                <p>0</p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Duyệt chấm công WFH</p> 
+                                <p>0</p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Đánh giá hợp đồng</p> 
+                                <p>0</p></div>
+                        </button>
+                    
+                    </div>
+                    <div class="item violet">
+                        <p class="item__title">THÔNG TIN KHÁC</p>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Dự án</p> 
+                                <p><i class="fa-solid fa-angle-right"></i></p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Làm thêm giờ</p> 
+                                <p><i class="fa-solid fa-angle-right"></i></p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Chấm công làm thêm giờ</p> 
+                                <p><i class="fa-solid fa-angle-right"></i></p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Timesheet gửi khách hàng</p> 
+                                <p><i class="fa-solid fa-angle-right"></i></p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Xem phiếu lương</p> 
+                                <p><i class="fa-solid fa-angle-right"></i></p></div>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            <div><p>Ủy quyền quyết toán thuế</p> 
+                                <p><i class="fa-solid fa-angle-right"></i></p></div>
+                        </button>
+                    </div>
+                    <div class="item blue" >
+                        <p class="item__title">ĐIỂM DANH</p>
+                        <table>
+                            <tr>
+                                <th>Ngày</th>
+                                <th>Giờ vào</th>
+                                <th>Giờ về</th>
+                              </tr>
+                              <tr>
+                                <td>19-12-2022</td>
+                                <td>07:49</td>
+                                <td>17:47</td>
+                              </tr>
+                              <tr>
+                                <td>16-12-2022</td>
+                                <td>08:22</td>
+                                <td>17:45</td>
+                              </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="list-item">
+                    <div class="item-bottom leave " >
+                        <p class="item__title">NGHỈ PHÉP</p>
+                        <table>
+                            <tr>
+                                <th>Loại nghỉ</th>
+                                <th>Đã dùng</th>
+                                <th>Còn lại</th>
+                              </tr>
+                              <tr>
+                                <td class="table-title">Nghỉ không lương</td>
+                                <td>0</td>
+                                <td>60</td>
+                              </tr>
+                              <tr>
+                                <td class="table-title">Nghỉ vì việc gia đình(Bố, mẹ, vợ, chồng mất)</td>
+                                <td>0</td>
+                                <td>3</td>
+                              </tr>
+                              
+                              <tr>
+                                <td class="table-title">Nghỉ cưới</td>
+                                <td>0</td>
+                                <td>3</td>
+                              </tr>
+                              <tr>
+                                <td class="table-title">Nghỉ bù OT</td>
+                                <td>0</td>
+                                <td>0</td>
+                              </tr>
+                        </table>
+                    </div>
+                    <div class="item-bottom meeting" >
+                        <p class="item__title">LỊCH HỌP HÔM NAY</p>
+                        <div class="addmeeting">
+                            <p>Bạn không có lịch học hôm nay!</p>
+                            <p>Ấn vào "+" để tạo lịch họp.</p>
+                            <p type="button"><i class="fa-solid fa-plus"></i></p>
+                        </div>
+                        
+                    </div>
+                    <div class="item-bottom dateofbirth" >
+                        <p class="item__title">SINH NHẬT THÀNH VIÊN</p>
+                        <div class="list-member">
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="member__image">
+                                    <img src="https://cachtrangdiem.com/uploads/001-Cachtrangdiem/3-Khoe-va-dep/4-Kinh-nghiem-hay/5-kieu-tao-dang-chup-anh-chat-lu/5-kieu-tao-dang-chup-anh-chat-lu-1.jpg" alt="#">
+                                </div>
+                                <div class="member__info">
+                                    <b>Nguyễn Thị Hồng</b>
+                                    <p>Reactjs</p>
+                                    <p>27/8</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let nav = document.querySelector('#nav-btn'),
+            body = document.body;
+        let shownav = document.querySelector('.justify-content-start')
+
+        // let mobileMenuBtn = document.querySelector('#mobile-menu-btn')
+        // let mobileProfileBtn = document.querySelector('#mobile-profile-btn')
+        // let mobileMenuContainer = document.querySelector('.mobile-menu-container')
+        // let mobileProfileContainer = document.querySelector('.mobile-profile-container')
+
+        // let modal = document.querySelector('.modal')
+
+        nav.addEventListener("click", function (e) {
+            e.stopPropagation();
+            shownav.classList.toggle("nav-menu");
+            // shownav.classList.remove("show-toggle");
+        });
+        // mobileProfileBtn.addEventListener("click", function (e) {
+        //     e.stopPropagation();
+        //     shownav.classList.remove("mobile-menu-block");
+        // });
+        // body.addEventListener("click", function () {
+        //     shownav.classList.remove("nav-menu");
+        // });
+    </script>
+</body>
+
+</html>
